@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 require('dotenv').config()
 const PORT = process.env.PORT;
-const pickRouter = require('./routes/realState');
+const pickRouter = require('../src/routes/realState');
 
 function server () {
     console.log(PORT)
