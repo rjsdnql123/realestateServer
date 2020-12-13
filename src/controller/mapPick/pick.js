@@ -1,11 +1,12 @@
 const axios = require('axios')
 require('dotenv').config()
 
-console.log(process.env.REALSTATE_LIST_KEY,'exv')
+
 const pick = async function(req,res)  {
-  axios
+  // console.log(encodeURIComponent(req.query.firstJuso))
+  await axios
   .get(
-    `https://www.juso.go.kr/addrlink/addrLinkApi.do?confmKey=${process.env.JUSO_NUMBER_KEY}&currentPage=1&countPerPage=10&resultType=json&keyword=%EC%84%9C%EC%9A%B8%ED%8A%B9%EB%B3%84%EC%8B%9C%20%EB%A7%88%ED%8F%AC%EA%B5%AC`
+    `https://www.juso.go.kr/addrlink/addrLinkApi.do?confmKey=${process.env.JUSO_NUMBER_KEY}&currentPage=1&countPerPage=10&resultType=json&keyword=${req.query.firstJuso+req.query.nextJuso}`
   )
   .then((Response) => {
     let juso = Response.data.results.juso[0].admCd.substring(0,5)
