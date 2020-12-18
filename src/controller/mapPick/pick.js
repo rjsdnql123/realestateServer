@@ -15,6 +15,7 @@ const pick = async function(req,res)  {
       `http://openapi.molit.go.kr/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcAptTradeDev?ServiceKey=${process.env.REALSTATE_LIST_KEY}&LAWD_CD=${juso}&DEAL_YMD=201512`
     )
     .then((Response) => {
+      console.log(Response.data.response.body.items.item)
       res.send(Response.data.response.body.items.item)
     })
     .catch((Error) => {
