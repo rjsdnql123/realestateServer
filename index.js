@@ -4,11 +4,13 @@ require('dotenv').config()
 const PORT = process.env.PORT;
 const pickRouter = require('./src/routes/realState');
 const cors = require('cors');
-var corsOptions = {
-    origin: "http://apartment-deploy.s3-website.ap-northeast-2.amazonaws.com/"
-  };
+// var corsOptions = {
+//     origin: "http://localhost:3000"
+//   };
   
-  app.use(cors(corsOptions));
+//   app.use(cors(corsOptions));
+// app.options('*', cors()) 
+app.use(cors())
 function server () {
     console.log(PORT)
 }
